@@ -18,5 +18,8 @@
     <ClCompile Include="SPNencrypt.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="AESencrypt.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
