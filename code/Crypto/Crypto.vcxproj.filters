@@ -21,5 +21,8 @@
     <ClCompile Include="AESencrypt.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Euclidean.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
