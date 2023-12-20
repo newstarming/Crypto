@@ -1,6 +1,31 @@
 #include<iostream>
 using namespace std;
 
+void rule(int& x,int k);
+// 点加算法
+void pointadd(int& x,int& y, int n);
+// 求逆元
+int inverse(int k);
+
+int main() {
+	int x0, y0;
+	int m, x, k;
+	cin >> x0 >> y0;
+	cin >> m >> x >> k;
+	pointadd(x0, y0, k);
+	int r = x0 % 13;
+	int hashx = 1;
+	for (; x > 0; x--) {
+		hashx *= 2;
+	}
+	hashx = hashx % 13;
+	int inversek = inverse(k);
+	int s = inversek * (hashx + m * r);
+	rule(s, 13);
+	cout << r << ' ' << s;
+	return 0;
+}
+
 void rule(int& x,int k) {
 	for (; x < 0;) {
 		x += k;
@@ -10,6 +35,7 @@ void rule(int& x,int k) {
 	}
 }
 
+// 点加算法
 void pointadd(int& x,int& y, int n) {
 	int p = 11;
 	n -= 2;
@@ -57,29 +83,11 @@ void pointadd(int& x,int& y, int n) {
 	}
 }
 
+// 求逆元
 int inverse(int k) {
 	int ci = 1;
 	for (; k * ci % 13 != 1;) {
 		ci++;
 	}
 	return ci;
-}
-
-int main() {
-	int x0, y0;
-	int m, x, k;
-	cin >> x0 >> y0;
-	cin >> m >> x >> k;
-	pointadd(x0, y0, k);
-	int r = x0 % 13;
-	int hashx = 1;
-	for (; x > 0; x--) {
-		hashx *= 2;
-	}
-	hashx = hashx % 13;
-	int inversek = inverse(k);
-	int s = inversek * (hashx + m * r);
-	rule(s, 13);
-	cout << r << ' ' << s;
-	return 0;
 }
